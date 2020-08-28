@@ -1,4 +1,4 @@
-let a=-10, b=-20, c=-1, d=0, e=1, a1=30, a2=60, a3=90, nota=95, par1=1, par2=3, par3=7, custo=100, venda=200;
+let a=-10, b=-20, c=-1, d=0, e=1, a1=30, a2=60, a3=90, nota=95, par1=1, par2=3, par3=6, custo=100, venda=200, salario=3000;
 let x="peão";
 function adição(a,b){return a+b}
 function subtração(a,b){return a-b}
@@ -27,16 +27,32 @@ function triangulo(a,b,c){
 
 function chess(str){
 
-    a = str.toLowerCase();
+    let a = str.toLowerCase();
 
     let resposta="o nome desta peça não existe no jogo de xadrez";
 
-    if ( a == "peão" ) {resposta=a+" - O primeiro movimento pode ser 1 ou 2 casas para frente. Depois do primeiro movimento, somente uma 1 casa para frente"}
-    if ( a == "torre" ) {resposta=a," - Horizontal ou Vertical"}
-    if ( a == "cavalo" ) {resposta=a," - Movimento em L"}
-    if ( a == "bispo" ) {resposta=a," - Movimento em diagonal"}
-    if ( a == "dama" ) {resposta=a," - Movimento em diagonal, horizontal ou vertical"}
-    if ( a == "rei" ) {resposta=a," - Qualquer direção, 1 casa"}
+    switch(a){
+        case "peão":
+            resposta=a+" - O primeiro movimento pode ser 1 ou 2 casas para frente. Depois do primeiro movimento, somente uma 1 casa para frente";
+            break;
+        case "torre":
+            resposta=a+" - Horizontal ou Vertical"
+            break;
+        case "cavalo":
+            resposta=a+" - Movimento em L"
+            break;
+        case "bispo":
+            resposta=a+" - Movimento em diagonal"
+            break;
+        case "dama":
+            resposta=a+" - Movimento em diagonal, horizontal ou vertical"
+            break;
+        case "rei":
+            resposta=a+" - Qualquer direção, 1 casa"
+            break;
+
+    }
+
     return resposta;
 }
 
@@ -58,9 +74,27 @@ function porcentagem(a){
 function lucro(custo,venda){
     
     if ( custo <= 0 || venda <= 0) { resposta = "Valores inválidos para o Custo e/ou Venda" }
-    else { resposta = venda*0.8-custo }
+    else { resposta = venda-custo*1.2 }
 
     return resposta;
+}
+
+function salarioliquido(s){
+    
+    let INSS, IR=0;
+    
+    if (s<=1556.94) { INSS=s*0.08}
+    if (s>1556.94 && s<=2594.92) { INSS=s*0.09}
+    if (s>2594.92 && s<=5189.82) { INSS=s*0.11}
+    if (s>5189.82) { INSS=570.88}
+
+    if (s-INSS>=1903.99 && s-INSS<=2826.65) {IR=(s-INSS)*0.075-142.80}
+    if (s-INSS>=2826.65 && s-INSS<=3751.05) {IR=(s-INSS)*0.15-354.80}
+    if (s-INSS>=3751.05 && s-INSS<=4664.68) {IR=(s-INSS)*0.225-636.13}
+    if (s-INSS>=4664.68) {IR=(s-INSS)*0.275-869.36}
+
+    return s-INSS-IR;
+
 }
 
 console.log("("+a,") + (",b,") = ",adição(a,b));
@@ -74,10 +108,10 @@ console.log("O sinal de "+d+" é ",sinal(d));
 console.log("O sinal de "+e+" é ",sinal(e));
 console.log(triangulo(a1,a2,a3));
 console.log(chess(x));
-console.log(porcentagem(nota));
+console.log("A nota "+nota+" representa a letra "+porcentagem(nota));
 
-console.log(par = ( par1 % 2 == 0 ) ||  ( par2 % 2 == 0 ) || ( par3 % 2 == 0 ));
-console.log(par = ( par1 % 2 != 0 ) ||  ( par2 % 2 != 0 ) || ( par3 % 2 != 0 ));
+console.log(par1,par2,par3,( par1 % 2 == 0 ) ||  ( par2 % 2 == 0 ) || ( par3 % 2 == 0 ));
+console.log(par1,par2,par3,( par1 % 2 != 0 ) ||  ( par2 % 2 != 0 ) || ( par3 % 2 != 0 ));
 
 console.log("Venda = "+venda," / Custo = "+custo+" / Lucro = "+lucro(custo,venda));
-
+console.log("Salario Bruto = "+salario+" / Salario Líquido = "+salarioliquido(salario));
