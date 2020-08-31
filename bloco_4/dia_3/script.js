@@ -1,6 +1,6 @@
 let n=10;
-let m=7;
-let verprimo=1;
+let m=9;
+
 
 let auxd="";
 
@@ -147,23 +147,26 @@ aux="";
 
 
 console.log();
-console.log(`Bonus 2 / verprimo = ${verprimo}`);
+console.log(`Bonus 2 - Número Primo`);
 
-ehprimo=true;
-
-for (x=2;x<verprimo;x++)
+for (let verprimo=1;verprimo<=7;verprimo++)
 {
-    if (verprimo % x == 0)
+    ehprimo=true;
+
+    for (x=2;x<verprimo;x++)
     {
-        ehprimo=false;
+        if (verprimo % x == 0)
+        {
+            ehprimo=false;
+        }
     }
-}
 
-if (ehprimo)
-{
-    console.log(`O número ${verprimo} é um número primo`);
-}
-else
-{
-    console.log(`O número ${verprimo} não é um número primo`);
+    if (ehprimo)
+    {
+        console.log(`O número ${verprimo} é um número primo`);
+    }
+    else
+    {
+        console.log(`O número ${verprimo} não é um número primo`);
+    }
 }
