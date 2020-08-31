@@ -1,4 +1,4 @@
-let n=4;
+let n=10;
 let auxd="";
 
 console.log(`Exercício 1 / n = ${n}`);
