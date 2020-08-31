@@ -1,4 +1,7 @@
 let n=10;
+let m=7;
+let verprimo=1;
+
 let auxd="";
 
 console.log(`Exercício 1 / n = ${n}`);
@@ -89,5 +92,78 @@ console.log(`Exercício 4 / n = ${n}`);
         console.log(`${auxe}${auxd}`);
         
     }
-    
 
+
+console.log();
+console.log(`Bonus 4 / m = ${m}`);
+d=Math.trunc(m/2);
+e=Math.trunc(m/2);
+
+
+for (l=0;l<Math.trunc(m/2);l++)
+{
+    auxe="";
+    for (c=0;c<=Math.trunc(m/2);c++)
+    {
+        if (c==e)
+        {
+            auxe=auxe.concat("*");
+            e--;
+        }
+        else
+        {
+            auxe=auxe.concat(" ");
+        }
+
+        
+    }
+    
+    auxd="";
+    //if (l>0)
+    {
+        auxd="";
+        for (c=Math.trunc(m/2)+1;c<=m;c++)
+        {
+            if (c-l==Math.trunc(m/2))
+            {
+                auxd=auxd.concat("*");
+            }
+            else
+            {
+                auxd=auxd.concat(" ");
+            }        
+        }
+    }
+
+    console.log(`${auxe}${auxd}`);
+
+}
+aux="";
+    for (x=1;x<=m;x++)
+    {
+        aux=aux.concat("*");
+    }
+    console.log(`${aux}`);
+
+
+console.log();
+console.log(`Bonus 2 / verprimo = ${verprimo}`);
+
+ehprimo=true;
+
+for (x=2;x<verprimo;x++)
+{
+    if (verprimo % x == 0)
+    {
+        ehprimo=false;
+    }
+}
+
+if (ehprimo)
+{
+    console.log(`O número ${verprimo} é um número primo`);
+}
+else
+{
+    console.log(`O número ${verprimo} não é um número primo`);
+}
