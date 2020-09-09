@@ -154,14 +154,18 @@
 
         //Item 4 - Centralize o div criado no passo 6 (aquele que possui a classe right-content).
         // Dica: para centralizar, basta configurar o margin-right: auto do div;
-        let elemento24=document.querySelector(".right-content");
-        elemento24.className="right-content2";
+        // let elemento24=document.querySelector(".right-content");
+        let elemento24=document.getElementsByClassName("right-content")[0];
+        console.log(elemento24);
+        elemento24.style.marginRight="auto";
+        
 
 
         //Item 5 - Troque a cor de fundo do elemento pai da div criada no passo 3 (aquela que
         //         possui a classe center-content) para a cor verde;
         let elemento25=document.querySelector(".center-content").parentNode;
-        elemento25.className="main-content2";
+        console.log(elemento25);
+        elemento25.style.background="green";
 
 
         //Item 6 - Remova os dois últimos elementos (nove e dez) da lista criada no passo 8.
