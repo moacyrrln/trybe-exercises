@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Calculator</title>
+</head>
+<body>
+
+  <label>Square this number:
+    <input type="number" id="square-input" size="2" >
+  </label>
+  <button id="square-button">Calculate</button>
+  <br><br>
+  
+  <label>Half this number:
+    <input type="number" id="half-input" size="2" >
+  </label>
+  <button id="half-button">Calculate</button>
+  <br><br>
+  
+  <label>
+    Fraction:
+    <input type="number" id="percent1-input" size="2" >
+  </label>
+  <label>
+    Whole:
+    <input type="number" id="percent2-input" size="2" >
+  </label>
+  <button id="percent-button">Calculate</button>
+  <br><br>
+  
+  <label>Calculate area of circle with radius:
+    <input type="number" id="area-input" size="2" >
+  </label>
+  <button id="area-button">Calculate</button> 
+  <br><br>
+  <div id="solution"></div>
+
+  
+</body>
+<script>
+
+    let Body = document.body;
+    let solutioninput = document.getElementById("solution");
+    
+    document.getElementById("square-button").parentNode.removeChild(document.getElementById("square-button"));
+    document.getElementById("half-button").parentNode.removeChild(document.getElementById("half-button"));
+    document.getElementById("area-button").parentNode.removeChild(document.getElementById("area-button"));
+    document.getElementById("percent-button").parentNode.removeChild(document.getElementById("percent-button"));
+
+    Body.addEventListener("keyup", myScript);
+    function myScript() {
+        
+        let squareinput = document.getElementById("square-input");
+        let sr = Math.pow(parseInt(squareinput.value), 2);
+        let solution = "";
+        if (!isNaN(sr)){
+            solution +="<p>Then square of "+squareinput.value+" is "+sr+"</p>";
+        }
+
+        let halfinput = document.getElementById("half-input");
+        let hr = halfinput.value/2;        
+        if (hr != undefined && halfinput.value != "") {
+            solution += "<p>Then half of "+halfinput.value+" is "+hr+"</p>";
+        }
+
+        let fractioninput = document.getElementById("percent1-input");
+        let wholeinput = document.getElementById("percent2-input");
+        let fr;
+
+        if (wholeinput.value == 0 && wholeinput.value != "") {
+            solution += "<p>Then whole number must be a non-zero number</p>";
+        }
+        
+        if (fractioninput.value == "" && wholeinput.value != 0) {
+            solution += "<p>Please, fill the Fraction Field Input</p>";
+        }
+        
+        if (fractioninput.value != "" && wholeinput.value == "") {
+            solution += "<p>Please, fill the Whole Field Input</p>";
+        }
+        
+        if (fractioninput.value != "" && wholeinput.value != 0) {
+            solution += "<p>"+fractioninput.value+" is "+fractioninput.value/wholeinput.value*100+"%"+" of "+wholeinput.value+"</p>";
+        }        
+
+        // if (fractioninput.value != "" && wholeinput.value != "") {
+        
+
+        //         if (!isNaN(fractioninput.value) && fractioninput.value != "") {
+        //             solution += "<p>"+fractioninput.value+" is "+fractioninput.value/wholeinput.value*100+"%"+" of "+wholeinput.value+"</p>";
+        //         }
+        //         else {
+        //             if (fractioninput.value != "") {
+        //                 solution += "<p>Please, fill the Whole Field Input</p>";
+        //             }
+        //             if (wholeinput.value != "") {
+        //                 solution += "<p>Please, fill the Fraction Field Input</p>";
+        //             }
+        //         }
+            
+        // }
+        
+
+        let areainput=(document.getElementById("area-input"));
+        let ar=Math.PI*Math.pow(areainput.value ,2);
+        if (!isNaN(ar) && areainput.value != ""){
+            solution +="<p>The area of circle with radius "+areainput.value+" is "+ar+"</p>";
+        }
+
+        solutioninput.innerHTML=solution;
+
+    }
+</script>
+</html>

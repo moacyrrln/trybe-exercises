@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <script>
+        window.onload = function() {
+            let botao=document.getElementById("lib-button");
+            botao.addEventListener("click",frase);
+            function frase(){
+
+                let NOUN=document.querySelectorAll("#noun")[0].value;
+                console.log(NOUN);
+                let ADJECTIVE=document.querySelectorAll("#adjective")[0].value;
+                console.log(ADJECTIVE);
+                let NAME=document.querySelectorAll("#person")[0].value;
+                console.log(NAME);
+
+                let STORY=document.getElementById("story");
+                STORY.innerHTML="<br>"+NAME+" realmente gosta de "+NOUN+" "+ADJECTIVE;
+                console.log(STORY);
+            }
+        }
+  </script>
+  <meta charset="utf-8" />
+  <title></title>
+ </head>
+ <body>
+ 
+ <h1>Mad Libs</h1>
+ 
+ <ul>
+  <li>Noun: <input type="text" id="noun">
+  <li>Adjective: <input type="text" id="adjective">
+  <li>Someone's Name: <input type="text" id="person">
+ </ul>
+ 
+ <button id="lib-button">Lib it!</button>
+  
+ <div id="story"></div>
+  
+ </body>
+</html>

@@ -1,0 +1,36 @@
+https://codepen.io/johnatas-henrique/pen/xxbQeOb
+
+//Crie seu event listener abaixo:
+caixaUm.addEventListener("click",trocaCor)
+
+
+https://codepen.io/johnatas-henrique/pen/oNgQOoY
+//Crie seu event listener abaixo:
+caixaUm.addEventListener("click",trocaCor);
+caixaDois.addEventListener("dblclick",changeColors);
+
+
+https://codepen.io/johnatas-henrique/pen/bGNQJXZ
+const caixaTexto = document.querySelector('.caixa-texto');
+const caixaUm = document.querySelector('.caixa1');
+const caixaDois = document.querySelector('.caixa2');
+
+function trocaTextoA (eventoDeOrigem) {
+  
+  caixaUm.innerText = caixaTexto.value;
+  
+}
+function trocaTextoB (eventoDeOrigem) {
+  if (eventoDeOrigem!="object HTMLInputElement") {
+  caixaDois.innerText = caixaTexto.value;
+  }
+}
+//Crie seu event listener abaixo:
+let tudo=document.body;
+caixaTexto.addEventListener('keyup',trocaTextoA);
+tudo.addEventListener('click',trocaTextoB);
+
+
+
+[object HTMLDivElement] fora
+[object HTMLInputElement] dentro
