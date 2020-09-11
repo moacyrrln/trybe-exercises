@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Cat Walk</title>
+ </head>
+ <body>
+    <img id="a" style="position:absolute;left: 0px" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+    <img id="b" style="position:absolute;left: 0px; top: 296px;" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+    <img id="c" style="position:absolute;left: 0px; top: 400px;" src="cat.gif">
+    <p id="idleftpos"></p>
+    <p id="idleftpos2"></p>
+    <p id="idcount"></p>
+ </body>
+ <script>
+    let imagem = document.getElementById("a");
+    let imagem2 = document.getElementById("b");
+    let teste = document.querySelectorAll("#a");
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    let leftpos = 0;
+    let leftpos2 = 0;
+    let pass = 1;
+    let pass2 = 1;
+    let ms = 1;
+    let tempo = (10 / (1/ms));
+    let count = 0;
+
+    console.log(h);
+    console.log(w);
+
+    setInterval(catWalk, ms);
+
+    let painel1 = document.getElementById("idleftpos");
+    let painel2 = document.getElementById("idleftpos2");
+    let painel3 = document.getElementById("idcount");
+
+    function cat(){
+        pass = 1;
+        imagem.src="http://www.anniemation.com/clip_art/images/cat-walk.gif"
+    }
+
+    function catdance(){
+        imagem.src = "cat.gif";
+        pass = 0;
+
+        setTimeout(cat,5000);
+    }
+
+    function catWalk() {
+
+        painel1.innerText = leftpos;
+        painel2.innerText = leftpos2;
+        painel3.innerText = w/2;
+        
+        imagem.style.left = leftpos+"px";
+        leftpos += pass;
+
+        if (leftpos >= w){
+            leftpos = -300;
+        }
+
+        if (leftpos == parseInt(w/2 - 296/2)) {
+
+            catdance();
+        }
+
+        imagem2.style.left = leftpos2+pass2+"px";
+        leftpos2 += pass2;
+
+        if (leftpos2 >= w - 296){
+            pass2 = -1;
+            imagem2.style.transform = "scaleX(-1)";            
+        }
+
+        if (leftpos2 <= 0){
+            pass2 = 1;
+            imagem2.style.transform = "scaleX(1)";
+        }
+    }
+    
+
+ </script>
+</html>
