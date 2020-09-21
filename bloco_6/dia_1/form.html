@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <div>Nome</div>
+            <input type="text" name="" id="" maxlength=40 required="required">
+            <div>Email</div>
+            <input type="text" name="" id="" maxlength=50 required="required">
+            <div>CPF</div>
+            <input type="text" name="" id="" maxlength=11 required="required">
+            <div>Endereço</div>
+            <input type="text" name="" id="" maxlength=200 required="required">
+            <div>Cidade</div>
+            <input type="text" name="" id="" maxlength=28 required="required">
+            <div>Estado</div>
+            <select id="estados" name="estados" required="required">
+            </select>
+            <div>Tipo</div>
+            <input type="radio" name="tipo" id="" value="Casa">
+            <label for="Casa">Casa</label><br>
+            <input type="radio" name="tipo" id="" value="Apartamento">
+            <label for="Apartamento">Apartamento</label><br>
+        </fieldset>
+        <fieldset>
+            <div>Resumo do currículo</div>
+            <textarea name="message" maxlength=1000 required="required" ></textarea>
+            <div>Cargo</div>
+            <input type="text" name="" id="" maxlength=40 required="required">
+            <div>Descrição do Cargo</div>
+            <textarea name="message" maxlength=500 required="required" ></textarea>
+            <div>Data de Início</div>
+            <input type="text" name="" id="" maxlength=10 required="required">
+        </fieldset>
+        
+    </form>
+    <script>
+        let estados = ['Acre (AC)', 
+                        'Alagoas (AL)', 
+                        'Amapá (AP)', 
+                        'Amazonas (AM)', 
+                        'Bahia (BA)', 
+                        'Ceará (CE)', 
+                        'Distrito Federal (DF)', 
+                        'Espírito Santo (ES)', 
+                        'Goiás (GO)', 
+                        'Maranhão (MA)', 
+                        'Mato Grosso (MT)', 
+                        'Mato Grosso do Sul (MS)', 
+                        'Minas Gerais (MG)', 
+                        'Pará (PA)', 
+                        'Paraíba (PB)', 
+                        'Paraná (PR)', 
+                        'Pernambuco (PE)', 
+                        'Piauí (PI)', 
+                        'Rio de Janeiro (RJ)', 
+                        'Rio Grande do Norte (RN)', 
+                        'Rio Grande do Sul (RS)', 
+                        'Rondônia (RO)', 
+                        'Roraima (RR)', 
+                        'Santa Catarina (SC)', 
+                        'São Paulo (SP)', 
+                        'Sergipe (SE)', 
+                        'Tocantins (TO)', 
+                        ]
+        let listaestados = document.getElementById("estados");
+        for (i = 0; i < estados.length; i++) {
+            let aux = document.createElement("option");
+            aux.value = estados[i];
+            aux.innerText = estados[i];
+            listaestados.appendChild(aux);
+        }
+        console.log(listaestados);
+    </script>
+</body>
+</html>
