@@ -1,0 +1,42 @@
+body {
+  background-color: aqua;
+  text-align: center;
+}
+
+h1 {
+
+}
+h2 {
+
+}
+
+img {
+    max-width: 100%;
+}
+
+figure {
+    margin: 0;
+}
+
+
+
+@media  (min-width: 800px) {
+
+  body {
+    background-color: darkolivegreen;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  figure { 
+    flex-basis: 49.5%;      
+  }
+
+
+}
