@@ -1,137 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/bulma.css">
-    <script src="https://kit.fontawesome.com/452885f33c.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bulma.css">
+  <style>
+    body {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 5%;
+      
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/452885f33c.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <form action="">
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Text input">
-            </div>
-          </div>
-          
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input is-success" type="text" placeholder="Text input" value="bulma">
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
-            </div>
-            <p class="help is-success">This username is available</p>
-          </div>
-          
-          <div class="field">
-            <label class="label">Email</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-              <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-exclamation-triangle"></i>
-              </span>
-            </div>
-            <p class="help is-danger">This email is invalid</p>
-          </div>
-          
-          <div class="field">
-            <label class="label">Subject</label>
-            <div class="control">
-              <div class="select">
-                <select>
-                  <option>Select dropdown</option>
-                  <option>With options</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          
-          <div class="field">
-            <label class="label">Message</label>
-            <div class="control">
-              <textarea class="textarea" placeholder="Textarea"></textarea>
-            </div>
-          </div>
-          
-          <div class="field">
-            <div class="control">
-              <label class="checkbox">
-                <input type="checkbox">
-                I agree to the <a href="#">terms and conditions</a>
-              </label>
-            </div>
-          </div>
-          
-          <div class="field">
-            <div class="control">
-              <label class="radio">
-                <input type="radio" name="question">
-                Yes
-              </label>
-              <label class="radio">
-                <input type="radio" name="question">
-                No
-              </label>
-            </div>
-          </div>
-          
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link">Submit</button>
-            </div>
-            <div class="control">
-              <button class="button is-link is-light">Cancel</button>
-            </div>
-          </div>
+  <form action="">
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control has-icons-right">
+        <input class="input" type="text" placeholder="Text input" required="required" id="nameinput">
+        <span class="icon is-small is-right">
+          <i id="alertname" class="fas fa-exclamation" style="color: red;"></i>
+        </span>
+        <p class="help is-danger" id="namealerttext"></p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" type="email" placeholder="Email input" value="" id="email" required="required">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i id="emailalert" class="fas fa-exclamation" style="color: red;"></i>
+        </span>
+      </div>
+      <p class="help is-danger" id="emailalerttext"></p>
+    </div>
+
+    
+
+  </form>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+  </script>
+  <script>
+
+    function IsEmail(email) {
+      let er = new RegExp(/^[A-Za-z0-9_\-\.]+@[A-Za-z0-9_\-\.]{2,}\.[A-Za-z0-9]{2,}(\.[A-Za-z0-9])?/);
+      if (email == '' || !er.test(email)) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+
+    let nameinput = document.getElementById("nameinput");
+    let alertname = document.getElementById("alertname");
+    let namealerttext = document.getElementById("namealerttext");
+
+    nameinput.addEventListener("focus", function() {
+      nameinput.style.backgroundColor = "white";
+    })
+
+    nameinput.addEventListener("input", function () {
+      if (nameinput.value != "") {
+        alertname.className = "fas fa-check";
+        alertname.style.color = "green";
+        namealerttext.innerText = "";
+        ameinput.className = "input";
+      }
+      else {
+        alertname.className = "fas fa-exclamation";
+        alertname.style.color = "red";
+        namealerttext.innerText = "";
+      }
+    })
+
+    nameinput.addEventListener("blur", function () {
+
+      if (nameinput.value != "") {
+        alertname.className = "fas fa-check";
+        alertname.style.color = "green";
+        namealerttext.innerText = "";
+        nameinput.className = "input";
+        // nameinput.style.backgroundColor = "rgb(232, 240, 254)";
+        nameinput.style.backgroundColor = "rgb(210, 255, 194)";
+
+        // 255, 194, 194 vermelho
+        // 210, 255, 194 verde
         
-    </form>
-    <script>
-        let estados = ['Acre (AC)', 
-                        'Alagoas (AL)', 
-                        'Amapá (AP)', 
-                        'Amazonas (AM)', 
-                        'Bahia (BA)', 
-                        'Ceará (CE)', 
-                        'Distrito Federal (DF)', 
-                        'Espírito Santo (ES)', 
-                        'Goiás (GO)', 
-                        'Maranhão (MA)', 
-                        'Mato Grosso (MT)', 
-                        'Mato Grosso do Sul (MS)', 
-                        'Minas Gerais (MG)', 
-                        'Pará (PA)', 
-                        'Paraíba (PB)', 
-                        'Paraná (PR)', 
-                        'Pernambuco (PE)', 
-                        'Piauí (PI)', 
-                        'Rio de Janeiro (RJ)', 
-                        'Rio Grande do Norte (RN)', 
-                        'Rio Grande do Sul (RS)', 
-                        'Rondônia (RO)', 
-                        'Roraima (RR)', 
-                        'Santa Catarina (SC)', 
-                        'São Paulo (SP)', 
-                        'Sergipe (SE)', 
-                        'Tocantins (TO)', 
-                        ]
-        let listaestados = document.getElementById("estados");
-        for (i = 0; i < estados.length; i++) {
-            let aux = document.createElement("option");
-            aux.value = estados[i];
-            aux.innerText = estados[i];
-            listaestados.appendChild(aux);
+      }
+      else {
+        alertname.className = "fas fa-exclamation";
+        alertname.style.color = "red";
+        namealerttext.innerText = "Este campo é obrigatório";
+        nameinput.className = "input is-danger";
+        nameinput.style.backgroundColor = "rgb(255, 194, 194)";
+      }
+      
+    })
+
+
+
+
+    let emailalert = document.getElementById("emailalert");
+
+    let email = document.getElementById("email");
+
+    let emailalerttext = document.getElementById("emailalerttext");
+
+    email.addEventListener("input", function () {
+      if (IsEmail(email.value)) {
+        emailalert.className = "fas fa-check";
+        emailalert.style.color = "green";
+        emailalerttext.innerText = "";
+      }
+      else {
+        if (email.value == "") {
+          emailalert.className = "fas fa-exclamation";
+          emailalert.style.color = "red";
+          emailalerttext.innerText = "";
+          
         }
-        console.log(listaestados);
-    </script>
+        else {
+          emailalert.className = "";
+          emailalert.style.color = "red";
+          emailalerttext.innerText = "";
+        }
+
+      }
+    })
+
+    email.addEventListener("focus", function (event) {
+      emailalerttext.innerText = "";
+      email.classList = "input";
+      email.style.backgroundColor = "white";
+    }, true);
+
+    email.addEventListener("blur", function (event) {
+      if (IsEmail(email.value)) {
+        emailalerttext.innerText = "";
+        email.className = "input";
+        email.style.backgroundColor = "rgb(210, 255, 194)";
+      }
+      else {
+        email.className = "input is-danger";
+        
+        if (email.value == "") {
+          emailalerttext.innerText = "Este campo é obrigatório";
+        } else {
+          emailalerttext.innerText = "email inválido";
+        }
+          
+        email.style.backgroundColor = "rgb(255, 194, 194)";
+
+      }
+    }, true);
+
+    let estados = ['Acre (AC)',
+      'Alagoas (AL)',
+      'Amapá (AP)',
+      'Amazonas (AM)',
+      'Bahia (BA)',
+      'Ceará (CE)',
+      'Distrito Federal (DF)',
+      'Espírito Santo (ES)',
+      'Goiás (GO)',
+      'Maranhão (MA)',
+      'Mato Grosso (MT)',
+      'Mato Grosso do Sul (MS)',
+      'Minas Gerais (MG)',
+      'Pará (PA)',
+      'Paraíba (PB)',
+      'Paraná (PR)',
+      'Pernambuco (PE)',
+      'Piauí (PI)',
+      'Rio de Janeiro (RJ)',
+      'Rio Grande do Norte (RN)',
+      'Rio Grande do Sul (RS)',
+      'Rondônia (RO)',
+      'Roraima (RR)',
+      'Santa Catarina (SC)',
+      'São Paulo (SP)',
+      'Sergipe (SE)',
+      'Tocantins (TO)',
+    ]
+
+
+    // let listaestados = document.getElementById("estados");
+    // for (i = 0; i < estados.length; i++) {
+    //   let aux = document.createElement("option");
+    //   aux.value = estados[i];
+    //   aux.innerText = estados[i];
+    //   listaestados.appendChild(aux);
+    // }
+    // console.log(listaestados);
+  </script>
 </body>
+
 </html>
